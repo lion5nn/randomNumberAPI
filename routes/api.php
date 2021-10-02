@@ -1,8 +1,8 @@
 <?php
 
+use \App\Models\Number;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
-use \App\Models\Number;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,6 +19,19 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/', function() {
-    return Number::all();
+Route::get('/', function () {
+    $randomNumber = random_int(0, 999999);
+    $result = Number::create([
+        'number' => $randomNumber,
+    ]);
+    return [
+        "ID" => $result["id"],
+        "Number" => $result["number"],
+    ];
+});
+
+Route::post('/', function ($id) {
+    return Number::select('number')
+        ->where('id', '=', 2)
+        ->get();
 });
