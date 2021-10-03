@@ -20,6 +20,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/', [GetApiController::class, "generate"]);
-
-Route::post('/', [PostApiController::class, "retrieve"]);
+Route :: middleware (['basicAuth']) -> group (function () {
+    Route::get('/', [GetApiController::class, "generate"]);
+    Route::post('/', [PostApiController::class, "retrieve"]);
+});
