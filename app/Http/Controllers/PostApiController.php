@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use mysql_xdevapi\Exception;
 use Validator;
 use App\Http\Requests;
 use \App\Models\Number;
-use Illuminate\Http\Client\Response;
 
 class PostApiController extends Controller
 {
