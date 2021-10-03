@@ -9,6 +9,10 @@ use \App\Models\Number;
 
 class PostApiController extends Controller
 {
+    protected $fillable = [
+        'number', 'id'
+    ];
+
     public function retrieve(Request $request) {
 
         $validator = Validator::make($request->all(), [
@@ -18,12 +22,12 @@ class PostApiController extends Controller
         $errors = $validator->errors();
         $id = $request->input("id");
         if(ctype_digit($id)) {
-            return Number::select('number')
+            $result = Number::select('number')
                 ->where('id', '=', $id)
                 ->get();
+            return $result[0]["number"];
         } else {
             return $errors;
         }
-
     }
 }

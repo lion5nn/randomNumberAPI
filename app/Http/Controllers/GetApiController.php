@@ -8,12 +8,10 @@ class GetApiController extends Controller
 {
     public function generate() {
         $randomNumber = rand(0, 999999);
-        $result = Number::create([
+        $resultArr = Number::create([
             'number' => $randomNumber,
         ]);
-        return [
-            "ID" => $result["id"],
-            "Number" => $result["number"],
-        ];
+        $result = $resultArr['id'];
+        return $result;
     }
 }
