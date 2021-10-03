@@ -1,8 +1,9 @@
 <?php
 
-use \App\Models\Number;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use \App\Models\Number;
+use \App\Http\Controllers\PostApiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,8 +31,4 @@ Route::get('/', function () {
     ];
 });
 
-Route::post('/', function ($id) {
-    return Number::select('number')
-        ->where('id', '=', 2)
-        ->get();
-});
+Route::post('/', [PostApiController::class, "retrieve"]);
