@@ -4,6 +4,7 @@ namespace App\Console;
 
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
+use App\Models\Number;
 
 class Kernel extends ConsoleKernel
 {
@@ -24,7 +25,20 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')->hourly();
+        $schedule->command("numbers:createfile")->daily();
+
+//        $schedule->call(function () {
+//
+//            $to      = 'nobody@example.com';
+//            $subject = 'the subject';
+//            $message = 'hello';
+//            $headers = 'From: webmaster@example.com' . "\r\n" .
+//                'Reply-To: webmaster@example.com' . "\r\n" .
+//                'X-Mailer: PHP/' . phpversion();
+//
+//            mail($to, $subject, $message, $headers);
+//
+//        })->everyFifteenMinutes();
     }
 
     /**
