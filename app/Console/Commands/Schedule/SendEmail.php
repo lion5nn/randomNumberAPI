@@ -1,25 +1,26 @@
 <?php
+namespace App\Console\Commands\Schedule;
 
-namespace App\Console\Commands\Shedule;
-
+use App\Mail\ReportMail;
 use App\Models\Number;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Mail;
 
-class CreateNumbersFile extends Command
+class SendEmail extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'numbers:createfile';
+    protected $signature = 'mail:send';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'Creating file with numbers';
+    protected $description = 'It send mail';
 
     /**
      * Create a new command instance.
@@ -41,9 +42,9 @@ class CreateNumbersFile extends Command
         $content = Number::all();
         $numbers = null;
         foreach ($content as $item) {
-            $numbers .= "{$item['number']}\n";
+            $numbers[] = "{$item['number']}\n";
         }
-        file_put_contents('report.txt', $numbers);
-        $this->info("File report.txt created");
+        Mail::to('admin@admin.admin')->send(new ReportMail($numbers));
+        $this->info("The report was sent to admin mail");
     }
 }
