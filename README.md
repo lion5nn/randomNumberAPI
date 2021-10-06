@@ -1,15 +1,18 @@
 # Random number API application
 
-It is a simple REST API written in Laravel 8.
+This API lets users create and get a random number.
 
+## Technologis
+
+Framework: [Laravel 8](https://laravel.com/docs/8.x/readme)
+
+Database: [PostgreSQL](https://www.postgresql.org/docs/)
 
 ## Run the app
 
     php artisan serve
 
 # Rest API
-
-It let the user create and get the random number.
 
 ## Authorization (with Basic Auth)
 
@@ -18,7 +21,7 @@ It let the user create and get the random number.
 
 ## Create the random number
 
-This method creates the random number and returns its ID
+This method **creates the random number** and **returns its ID**
 
 ### Request
 
@@ -36,7 +39,7 @@ This method creates the random number and returns its ID
 
 ## Get the number by ID
 
-This method returns numbers by $id
+This method **returns numbers** by $id
 
 ### Request
 
@@ -56,11 +59,9 @@ This method returns numbers by $id
 
 # Console commands
 
-The application includes console commands.
-
 ## Create the random number
 
-Create the random number and return ID
+**Create the random number** and **return ID**
 
 ### Command
 
@@ -72,7 +73,7 @@ Create the random number and return ID
 
 ## Get the number by ID
 
-Return number by $id
+**Return number by $id**
 
 ### Command
 
@@ -84,7 +85,7 @@ Return number by $id
 
 ## Create report
 
-To re-create report.txt in the root directory with a list of all
+**To re-create** report.txt in the root directory with a list of all
 numbers.
 
 ### Command
@@ -97,7 +98,7 @@ numbers.
 
 ## Mail report
 
-To send mail on email with a list of all numbers.
+**To send mail** on email with a list of all numbers.
 
 ### Command
 
@@ -115,10 +116,10 @@ To send mail on email with a list of all numbers.
 
 ## Create report task
 
-It launches console command [number:report]() once a day 
+**It launches** console command `number:report` once a day 
 every day
 
 ## Mail report task
 
-It launches console command [mail:send]() once a day
+**It launches** console command `mail:send` once a day
 every day
