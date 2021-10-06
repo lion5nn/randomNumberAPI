@@ -2,7 +2,7 @@
 
 This API lets users create and get a random number.
 
-## Technologis
+## Technologies
 
 Framework: [Laravel 8](https://laravel.com/docs/8.x/readme)
 
